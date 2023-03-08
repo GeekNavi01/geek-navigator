@@ -9,7 +9,7 @@ body{
     width: 100%;
 }
 
-:is(.navbar, .flex){
+:is(.navbar){
     display: flex;
     align-items: center;
     align-content: center;
@@ -27,28 +27,31 @@ body{
     font-weight: 700;
 }
 
-.flex{
-    /* TODO */
-    background-image: url('comp.svg');
-    border: 1px solid red;
-    bottom: 10px;
-    left: 45%;
-    height: 100vh;
+.container{
+    position: relative;
+    
+}
+
+.container img{
+    width: 100%;
+    filter: blur(1.2px) contrast(200%) brightness(50%);
 }
 
 .land-page{
-    display: block;
     padding: 15px;
-    margin-bottom: -200px;
+    position: absolute;
+    bottom: 60px;
+    right: 200px;
 }
 
 .welcome-text{
     font-size: 40px;
     font-weight: 700;
     text-align: center;
+    color: white;
 }
 .get-btn{
-    margin-top: 10px;
+    margin: 0 auto;
     background-color: black;
     padding: 10px;
     color: white;
@@ -56,4 +59,5 @@ body{
     border-radius: 30px;
     width: fit-content;
     font-weight: bold;
+    display: flex;
 }
