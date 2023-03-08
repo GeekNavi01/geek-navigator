@@ -17,18 +17,37 @@
             <h4 class="choose">choose to continue</h4>
         </div>
     </div>
-    <div class="signup-btns">
-        <div class="radio-btns">
-            <div class="rads">
-                <input type="radio" name="student"><label class="label" for="student">student</label>
+    <div class="mess">
+        {% for res in form.name.errors %}
+            <div class="message">
+                {{ res }}
             </div>
-            <div class="rads">
-                <input type="radio" name="staff"><label class="label"  for="student">staff</label>
+        {% endfor %}
+    </div>
+    <div class="form">
+        <form action="signup", method="post">
+            <div class="fields">
+                <div class="field">
+                    {{ form.name.label(class_= "form-label") }}<br>
+                    {{ form.name(class_= "form-field", placeholder_ = "Enter your name") }}
+                </div>
+                <div class="field">
+                    {{ form.email.label(class_= "form-label") }}<br>
+                    {{ form.email(class_= "form-field", placeholder_ = "Enter your email") }}
+                </div>
+                <div class="field">
+                    {{ form.password.label(class_= "form-label") }}<br>
+                    {{ form.password(class_= "form-field", placeholder_ = "Enter your password") }}
+                </div>
+                <div class="field">
+                    {{ form.user.label(class_= "form-label") }}<br>
+                    {{ form.user(class_= "form-field user") }}
+                </div>
+                <div class="sub-btn field">
+                    {{ form.submit(class_ = "submit") }}
+                </div>
             </div>
-            <div class="rads">
-                <input type="radio" name="visitor"><label class="label"  for="student">visitor</label>
-            </div>
-        </div>
+        </form>
     </div>
 </body>
 </html>

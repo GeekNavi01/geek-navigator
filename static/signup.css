@@ -5,6 +5,12 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+i{
+    font-size: 100px;
+    color: greenyellow;
+    filter: contrast(200%);
+}
+
 body{
     width: 100%;
 }
@@ -17,43 +23,66 @@ body{
     color: grey;
 }
 
-:is(.loc-icon,.signup-class, .signup-btns){
+:is(.loc-icon,.signup-class, .form, .mess, .sub-btn){
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: center;
 }
 
-.signup-class{
-    /* transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%; */
-    margin-top: 200px;
-}
-
-:is(.radio-btns, .text){
+:is(.text){
     display: block;
 }
 
-.radio-btns{
-    width: 20%;
-
+.form{
+    margin-top: 5px;
+    height: auto;
+    padding: 10px;
 }
 
-.rads{
-    display: flex;
-    font-size: 20px;
-    background-color: grey;
+.fields{
+    padding: 10px;
+    height: 100%;
+    width: 500px;
+}
+
+.form-field{
+    width: 100%;
+    background-color: rgb(189, 187, 187);
+}
+
+.form-field:focus{
+    outline: 1px solid greenyellow;
+}
+
+:is(.user:hover, .submit:hover){
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.field{
+    margin-top: 5px;
+}
+
+.form-label{
+    color: rgb(124, 122, 122);
+    text-transform: uppercase;
+}
+
+:is(.form-field, .submit){
+    border: none;
+    outline: none;
     padding: 10px;
     border-radius: 10px;
-    margin-top: 10px;
-    width: 100%;
+    color: white;
+    font-size: 20px;
 }
 
-.label{
-    margin-left: 5px;
+.submit{
+    width: 50%;
+    background-color: greenyellow;
 }
 
-/* .radio-btns{
-
-} */
+.submit:hover{
+    background-color: green;
+}
