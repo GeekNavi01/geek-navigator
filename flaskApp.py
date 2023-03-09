@@ -21,5 +21,13 @@ def signup():
     elif request.method == 'GET':
         return render_template('signup.html', form = form)
 
+#search
+@app.route('/search', methods = ['POST', 'GET'])
+def search():
+    form = RegisterForm()
+    # if request.method == 'POST':
+    return render_template('app.html', form = form)
+    # return render_template('index.html')
+
 if __name__==('__main__'):
     app.run(debug=True)

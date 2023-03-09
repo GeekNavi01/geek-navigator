@@ -5,10 +5,31 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-i{
+#i{
     font-size: 100px;
-    color: greenyellow;
+    color: green;
     filter: contrast(200%);
+}
+
+span {
+    color: black;
+    font-size: 30px;
+    margin-left: 10px;
+    transition: 0.5s;
+}
+
+span:hover{
+    cursor: pointer;
+    color: green;
+}
+
+.search-search-box{
+    display: flex;
+    align-items: center;
+}
+
+.search-box{
+    color: black;
 }
 
 body{
@@ -23,11 +44,18 @@ body{
     color: grey;
 }
 
-:is(.loc-icon,.signup-class, .form, .mess, .sub-btn){
+:is(.loc-icon,.signup-class, .form, .mess, .sub-btn, .search, .map){
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: center;
+}
+
+.map{
+    margin-top: 30px;
+    outline: 1px solid red;
+    margin: 10px;
+    height: auto;
 }
 
 :is(.text){
@@ -46,12 +74,12 @@ body{
     width: 500px;
 }
 
-.form-field{
+:is(.form-field, .search-box){
     width: 100%;
     background-color: rgb(189, 187, 187);
 }
 
-.form-field:focus{
+:is(.form-field:focus, .search-box:focus){
     outline: 1px solid greenyellow;
 }
 
@@ -60,7 +88,7 @@ body{
     transition: 0.5s;
 }
 
-.field{
+:is(.field, .search-box){
     margin-top: 5px;
 }
 
@@ -69,7 +97,7 @@ body{
     text-transform: uppercase;
 }
 
-:is(.form-field, .submit){
+:is(.form-field, .submit, .search-box){
     border: none;
     outline: none;
     padding: 10px;
