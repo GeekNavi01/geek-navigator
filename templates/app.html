@@ -3,84 +3,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
-    <script src="https://kit.fontawesome.com/7d65ecdd67.js" crossorigin="anonymous"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script type="module" src="{{ url_for('static', filename='index.js') }}"> defer</script>
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/7d65ecdd67.js" crossorigin="anonymous" defer></script>
+    <script src="{{ url_for('static', filename='app.js')}}" defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=mykey&callback=initMap" defer></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=mykey" defer></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=true" defer></script>
+    <title>Search location</title>
 </head>
 <body>
-    <div class="search">
-        <form action="search">
-            <div class="search-search-box">
-                {{ form.search(class_= "search-box", placeholder_= "Search...") }}
-                <span><i class="fa-sharp fa-solid fa-magnifying-glass"></i></span>
-            </div>
-        </form>
-    </div>
-    <div class="map">
-        <!-- <iframe
-            width="800"
-            height="600"
-            style="border:0"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBfgTFGV0_kYHzljKxAbqrnkAvLD2rrHKk
-                &q=Durban+University+of+Technology, Durban">
-        </iframe> -->
-
-
-
-
-
-        <div id="floating-panel">
-        <b>Start: </b>
-        <select id="start">
-            <option value="chicago, il">Chicago</option>
-            <option value="st louis, mo">St Louis</option>
-            <option value="joplin, mo">Joplin, MO</option>
-            <option value="oklahoma city, ok">Oklahoma City</option>
-            <option value="amarillo, tx">Amarillo</option>
-            <option value="gallup, nm">Gallup, NM</option>
-            <option value="flagstaff, az">Flagstaff, AZ</option>
-            <option value="winona, az">Winona</option>
-            <option value="kingman, az">Kingman</option>
-            <option value="barstow, ca">Barstow</option>
-            <option value="san bernardino, ca">San Bernardino</option>
-            <option value="los angeles, ca">Los Angeles</option>
-        </select>
-        <b>End: </b>
-        <select id="end">
-            <option value="chicago, il">Chicago</option>
-            <option value="st louis, mo">St Louis</option>
-            <option value="joplin, mo">Joplin, MO</option>
-            <option value="oklahoma city, ok">Oklahoma City</option>
-            <option value="amarillo, tx">Amarillo</option>
-            <option value="gallup, nm">Gallup, NM</option>
-            <option value="flagstaff, az">Flagstaff, AZ</option>
-            <option value="winona, az">Winona</option>
-            <option value="kingman, az">Kingman</option>
-            <option value="barstow, ca">Barstow</option>
-            <option value="san bernardino, ca">San Bernardino</option>
-            <option value="los angeles, ca">Los Angeles</option>
-        </select>
+    <!-- <div class="container">
+        <div class="block">
+            <h3 class="message"></h3>
+            <button class="button">Locate Me</button>
         </div>
-        <div id="map"></div>
-        <!-- 
-        The `defer` attribute causes the callback to execute after the full HTML
-        document has been parsed. For non-blocking uses, avoiding race conditions,
-        and consistent behavior across browsers, consider loading using Promises
-        with https://www.npmjs.com/package/@googlemaps/js-api-loader.
-        -->
-        <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
-        defer
-        ></script>
-
-        
-        
-
+    </div> -->
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <h1>Find the best path, the distance, ETA, etc. from your position to Durban University of Technology in Durban.</h1>
+            <p>Navigate to DUT from your point of origin.</p>
+            <div class="flex">
+                <div class="block">
+                    <form class="form-horizontal" action="search">
+                        <div class="form-group">
+                            <label for="from" class="col-xs-2 control label"><i class="far fa-dot-circle"></i></label><br />
+                            <div class="col-xs-4">
+                                <input type="text" id="from" placeholder="Origin" class="form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="to" class="col-xs-2 control label"><i class="fas fa-map-marker-alt"></i></label><br />
+                            <div class="col-xs-4">
+                                <input type="text" id="to" placeholder="Destination" class="form-control">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-xs-offset-2 col-xs-10 button">
+                        <button class="btn btn-info btn-lg " onclick="calcRoute();"><i class="fas fa-map-signs"></i></button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div id="googleMap"></div>
+            <div id="output"></div>
+        </div>
     </div>
 </body>
 </html>
