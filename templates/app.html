@@ -7,41 +7,61 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/7d65ecdd67.js" crossorigin="anonymous" defer></script>
     <script src="{{ url_for('static', filename='app.js')}}" defer></script>
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=mykey&callback=initMap" defer></script> -->
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=mykey" defer></script> -->
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=true" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBHBn-cX0_iHjXaIxhvOtZjwg9_FbK_hI8"></script>
     <title>Search location</title>
 </head>
 <body>
-    <!-- <div class="container">
-        <div class="block">
+    <div class="container c-loc">
+        <div class="blockk">
             <h3 class="message"></h3>
-            <button class="button">Locate Me</button>
+            <button class="button-btn">Locate Me</button>
         </div>
-    </div> -->
+    </div>
+    <div class="container c-feed">
+        <a href="{{ url_for('create_feedback') }}">
+            <div class="blockk">
+                <button class="button-feed">Feedback</button>
+            </div>
+        </a>
+    </div>
+    <div class="container c-feed logout">
+        <a href="{{ url_for('login') }}">
+            <div class="blockk">
+                <button class="button-feed">Logout</button>
+            </div>
+        </a>
+    </div>
     <div class="jumbotron">
         <div class="container-fluid">
-            <h1>Find the best path, the distance, ETA, etc. from your position to Durban University of Technology in Durban.</h1>
-            <p>Navigate to DUT from your point of origin.</p>
             <div class="flex">
                 <div class="block">
                     <form class="form-horizontal" action="search">
                         <div class="form-group">
-                            <label for="from" class="col-xs-2 control label"><i class="far fa-dot-circle"></i></label><br />
+                            <label for="from" class="col-xs-2 control label">ORIGIN</label>
                             <div class="col-xs-4">
-                                <input type="text" id="from" placeholder="Origin" class="form-control">
+                                <input name="origin" type="text" id="from" placeholder="Origin" class="form-control">
                             </div>
                         </div>
-                        <br>
                         <div class="form-group">
-                            <label for="to" class="col-xs-2 control label"><i class="fas fa-map-marker-alt"></i></label><br />
+                            <label for="to" class="col-xs-2 control label">DESTINATION</label>
                             <div class="col-xs-4">
-                                <input type="text" id="to" placeholder="Destination" class="form-control">
+                                <input name="destination" type="text" id="to" placeholder="Destination" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mode" class="col-xs-2 control label">TRAVEL MODE</label>
+                            <div class="col-xs-4">
+                                <select class="form-control" name="mode" id="mode">
+                                    <option value="DRIVING">Driving</option>
+                                    <option value="WALKING">Walking</option>
+                                    <option value="BICYCLING">Cycling</option>
+                                    <option value="TRANSIT">Transit</option>
+                                </select>
                             </div>
                         </div>
                     </form>
                     <div class="col-xs-offset-2 col-xs-10 button">
-                        <button class="btn btn-info btn-lg " onclick="calcRoute();"><i class="fas fa-map-signs"></i></button> 
+                        <button onclick="displayRoute();">Search</button> 
                     </div>
                 </div>
             </div>
@@ -49,6 +69,16 @@
         <div class="container-fluid">
             <div id="googleMap"></div>
             <div id="output"></div>
+        </div>
+    </div>
+    <div class="div">
+        <div class="account">
+            <h1>
+                <a href="{{ url_for('profile') }}">Welcome, {{ name }}</a>
+            </h1>
+        </div>
+        <div class="viewfeed">
+            <a href="{{ url_for('viewfeed') }}">View feedback</a>
         </div>
     </div>
 </body>

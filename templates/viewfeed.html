@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile-feedback.css')}}">
+    <title>Feedbanck</title>
+</head>
+<body>
+    <h1 style="text-align: center; margin-top: 10px;"> USER FEEDBACK</h1>
+    <div class="feed-boxx">
+        <div class="feed">
+            {% for feed in feedbacks %}
+                <div>#{{ feed.post_id }}<br>{{ feed.user_feedback }}</div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/7d65ecdd67.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
-    <title>Sign up</title>
+    <title>Login</title>
 </head>
 <body>
     <div class="loc-icon">
-        <i class="fa-solid fa-user-plus"></i>
+        <i class="fa-solid fa-right-to-bracket"></i>
     </div>
     <div class="signup-class">
         <div class="text">
-            <h1 class="signup">SIGN UP:</h1>
-            <h4 class="choose">Already have an account <a href="{{ url_for('login') }}">login instead.</a></h4>
+            <h4 class="choose">Don't have account? <a href="{{ url_for('signup') }}">create one.</a></h4>
         </div>
     </div>
     {% with messages = get_flashed_messages() %}
@@ -25,27 +24,15 @@
     {% endif %}
     {% endwith %}
     <div class="form">
-        <form action="signup", method="post">
+        <form action="login", method="post">
             <div class="fields">
-                <div class="field">
-                    <label for="name" class="form-label">NAME</label>
-                    <input type="text" name="name" id="name" class="form-field" placeholder="Enter your name" required>
-                </div>
                 <div class="field">
                     <label for="email" class="form-label">EMAIL</label>
                     <input type="email" name="email" id="email" class="form-field" placeholder="Enter your email" required>
                 </div>
                 <div class="field">
                     <label for="password" class="form-label">PASSWORD</label>
-                    <input type="password" name="password" id="password" class="form-field" placeholder="Enter your password" required>
-                </div>
-                <div class="field">
-                    <label for="age" class="form-label">AGE</label>
-                    <input type="text" name="age" id="age" class="form-field" placeholder="Enter your age" required>
-                </div>
-                <div class="field">
-                    <label for="user_type" class="form-label">USER TYPE</label>
-                    <input type="text" name="user_type" id="user_type" class="form-field" placeholder="E.g Student or Staff or Visitor" required>
+                    <input type="password" name="password" id="password" class="form-field" placeholder="Enter your password">
                 </div>
                 <div class="sub-btn field">
                     {{ form.submit(class_ = "submit") }}

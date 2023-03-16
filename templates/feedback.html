@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile-feedback.css')}}">
+    <title>Feedback</title>
+</head>
+<body>
+    <h1 style="text-align: center;">FEEDBACK</h1>
+    <form method="post">
+        <div class="feed-box">
+            <textarea name="textarea" placeholder="Enter your message..." required></textarea>
+        </div>
+        <div class="btn">
+            <button class="comment">Comment</button>
+        </div>
+    </form>
+</body>
+</html>
