@@ -3,6 +3,20 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+
+.notification{
+    display: flex;
+    padding: 10px;
+    border-radius: 4px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: rgb(250, 146, 146);
+    margin: 5px 200px 0 200px;
+    font-size: 20px;
+
 }
 
 #i{
@@ -38,10 +52,17 @@ body{
 
 .loc-icon{
     margin-top: 50px;
+    color: blue;
+    font-size: 70px;
+}
+
+.signup{
+    text-align: center;
+    font-size: 22px;
 }
 
 .choose{
-    color: grey;
+    color: rgb(41, 40, 40);
 }
 
 :is(.loc-icon,.signup-class, .form, .mess, .sub-btn, .search, .map){
@@ -108,9 +129,10 @@ body{
 
 .submit{
     width: 50%;
-    background-color: greenyellow;
+    background-color: rgb(123, 123, 248);
+    transition: 0.5s;
 }
 
 .submit:hover{
-    background-color: green;
+    background-color: blue;
 }
